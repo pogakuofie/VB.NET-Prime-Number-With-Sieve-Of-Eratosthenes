@@ -1,0 +1,49 @@
+
+'This program print all prime numbers within a selected range(1-100)
+
+
+Module Module1
+
+    Sub Main()
+
+        Dim basket(99) As Boolean 'creates an boolean array of size 100
+
+        'initialize elements of basket[] from index 2 to upper bounds of array to true
+        For i As Integer = 0 To 99 Step 1
+
+            basket(i) = True
+        Next i
+
+        'loop through array starting form index 2 to the square root of the size of the array
+        For j As Integer = 2 To Math.Sqrt(99) Step 1
+
+            'determines weather current array position is true
+            If basket(j) = True Then
+
+                'if current array position equals true then the loop goes through
+                'the rest of the array setting the multiple of the current array
+                'position to false
+                For k As Integer = (j + 1) To 99 Step 1
+
+                    'determines if current array position is multiple of 'j'
+                    If (k Mod j) = 0 Then
+
+                        basket(k) = False 'set array position to false
+                    End If
+                Next k
+            End If
+        Next j
+
+        'loops through basket[] print array index which is now the prime number if the position is still true
+        For m As Integer = 2 To 99 Step 1
+
+            If basket(m) = True Then 'determines if position equals true
+
+                Console.Write(" " + Str(m)) 'print of position
+            End If
+        Next m
+
+        Console.ReadKey()
+    End Sub
+
+End Module
