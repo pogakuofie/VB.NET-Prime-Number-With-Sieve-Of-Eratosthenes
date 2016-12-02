@@ -23,13 +23,9 @@ Module Module1
                 'if current array position equals true then the loop goes through
                 'the rest of the array setting the multiple of the current array
                 'position to false
-                For k As Integer = (j + 1) To 99 Step 1
-
-                    'determines if current array position is multiple of 'j'
-                    If (k Mod j) = 0 Then
+                For k As Integer = (j * 2) To 99 Step j
 
                         basket(k) = False 'set array position to false
-                    End If
                 Next k
             End If
         Next j
